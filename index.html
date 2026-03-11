@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mainframe Activation</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#050816;
+color:white;
+text-align:center;
+}
+
+h1{
+font-size:60px;
+color:#00eaff;
+margin-top:40px;
+}
+
+.dashboard{
+display:flex;
+justify-content:center;
+gap:40px;
+margin-top:60px;
+}
+
+.card{
+background:#0d1326;
+padding:40px;
+border-radius:12px;
+width:260px;
+box-shadow:0 0 20px rgba(0,234,255,0.3);
+}
+
+.counter{
+font-size:48px;
+color:#00eaff;
+}
+
+button{
+margin-top:60px;
+padding:20px 40px;
+font-size:24px;
+background:#00eaff;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>THE INVISIBLE ENGINE OF THE WORLD</h1>
+
+<div class="dashboard">
+
+<div class="card">
+Credit Card Transactions
+<div id="cc" class="counter">0</div>
+</div>
+
+<div class="card">
+ATM Withdrawals
+<div id="atm" class="counter">0</div>
+</div>
+
+<div class="card">
+Airline Bookings
+<div id="air" class="counter">0</div>
+</div>
+
+</div>
+
+<button onclick="simulate()">RUN 1 MILLION TRANSACTIONS</button>
+
+<script>
+
+let cc=0
+let atm=0
+let air=0
+
+setInterval(()=>{
+cc+=Math.floor(Math.random()*100)
+atm+=Math.floor(Math.random()*40)
+air+=Math.floor(Math.random()*20)
+
+document.getElementById("cc").innerText=cc.toLocaleString()
+document.getElementById("atm").innerText=atm.toLocaleString()
+document.getElementById("air").innerText=air.toLocaleString()
+
+},1000)
+
+function simulate(){
+
+let total=0
+
+let sim=setInterval(()=>{
+
+total+=50000
+
+cc+=50000
+atm+=20000
+air+=10000
+
+document.getElementById("cc").innerText=cc.toLocaleString()
+document.getElementById("atm").innerText=atm.toLocaleString()
+document.getElementById("air").innerText=air.toLocaleString()
+
+if(total>=1000000){
+clearInterval(sim)
+}
+
+},200)
+
+}
+
+</script>
+
+</body>
+</html>
