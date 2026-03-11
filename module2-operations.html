@@ -1,1 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Operations</title>
 
+<style>
+
+body{
+background:#020a1f;
+color:white;
+font-family:Arial;
+text-align:center;
+}
+
+h1{
+color:#00eaff;
+}
+
+.alert{
+background:#8b0000;
+padding:20px;
+margin:40px auto;
+width:500px;
+}
+
+button{
+padding:20px 40px;
+font-size:20px;
+background:#00eaff;
+border:none;
+margin:20px;
+cursor:pointer;
+}
+
+.result{
+margin-top:40px;
+font-size:24px;
+color:#00ff9c;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Mainframe Operations Center</h1>
+
+<div class="alert">
+⚠ Batch Job Failure Detected
+</div>
+
+<button onclick="manual()">Investigate Manually</button>
+<button onclick="ai()">Use watsonx Assistant</button>
+
+<div id="result" class="result"></div>
+
+<script>
+
+function manual(){
+document.getElementById("result").innerText=
+"Manual investigation may take hours..."
+}
+
+function ai(){
+document.getElementById("result").innerText=
+"AI Agent detected disk allocation issue ✔ Auto-remediation applied"
+}
+
+</script>
+
+</body>
+</html>
