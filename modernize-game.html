@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Modernization Challenge</title>
+<title>COBOL Modernization Challenge</title>
 
 <style>
 body{
@@ -11,12 +11,18 @@ font-family:monospace;
 text-align:center;
 }
 
+h1{
+color:#00eaff;
+margin-top:40px;
+}
+
 .code{
 background:black;
 width:650px;
 margin:40px auto;
 padding:30px;
 text-align:left;
+border-radius:10px;
 }
 
 button{
@@ -26,13 +32,20 @@ font-size:18px;
 background:#00eaff;
 border:none;
 cursor:pointer;
+border-radius:6px;
+}
+
+button:hover{
+opacity:0.8;
 }
 
 .result{
 font-size:24px;
 margin-top:40px;
 color:#00ff9c;
+white-space:pre-line;
 }
+
 </style>
 </head>
 
@@ -41,6 +54,10 @@ color:#00ff9c;
 <button onclick="location.href='index.html'">⬅ Home</button>
 
 <h1>COBOL Modernization Challenge</h1>
+
+<div style="width:60%;margin:20px auto;background:#111;border-radius:5px;">
+<div id="progress" style="height:10px;width:10%;background:#00eaff;border-radius:5px;"></div>
+</div>
 
 <div class="code">
 IDENTIFICATION DIVISION.
@@ -58,21 +75,41 @@ STOP RUN.
 
 <div id="result" class="result"></div>
 
+<audio id="successSound" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio>
+
 <script>
 
+let score = 0;
+
 function wrong(){
+score -= 10;
 document.getElementById("result").innerText =
-"❌ This approach takes months!";
+"❌ Slow approach.\nScore: " + score;
 }
 
 function correct(){
+
+document.getElementById("result").innerText = "🤖 AI analyzing COBOL code...";
+
+setTimeout(()=>{
+
+score += 50;
+
+document.getElementById("progress").style.width = "100%";
+
 document.getElementById("result").innerText =
-"✅ AI Modernization Successful!\nCOBOL → Java APIs generated\nTechnical Debt Reduced 80%";
+"✅ AI Modernization Successful!\nScore: " + score +
+"\nCOBOL → Java APIs generated\nTechnical Debt Reduced 80%";
+
+document.getElementById("successSound").play();
+
+},1500);
+
 }
 
 setTimeout(()=>{
 location.href="index.html"
-},120000)
+},30000)
 
 </script>
 
