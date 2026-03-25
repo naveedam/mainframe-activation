@@ -1,90 +1,173 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Mainframe AI Experience</title>
+<title>Mainframe AI Command Center</title>
 
 <style>
 
 body{
-background:#050816;
+background:#020617;
 color:white;
 font-family:Arial;
 text-align:center;
 margin:0;
+overflow:hidden;
 }
+
+/* HEADER */
 
 h1{
 font-size:60px;
 color:#00eaff;
-margin-top:60px;
+margin-top:40px;
+letter-spacing:2px;
 }
 
 .subtitle{
-font-size:22px;
 opacity:.7;
 margin-top:10px;
 }
 
-.container{
-margin-top:100px;
+/* GRID */
+
+.dashboard{
 display:flex;
 justify-content:center;
-gap:80px;
+gap:60px;
+margin-top:80px;
 }
 
+/* CARDS */
+
 .card{
-background:#0d1326;
-padding:60px;
-width:420px;
-border-radius:14px;
-box-shadow:0 0 30px rgba(0,234,255,0.3);
+background:#0b132b;
+padding:40px;
+width:320px;
+border-radius:16px;
+box-shadow:0 0 40px rgba(0,234,255,0.25);
+}
+
+.label{
+font-size:18px;
+opacity:.7;
+}
+
+.value{
+font-size:42px;
+color:#00eaff;
+margin-top:10px;
+}
+
+/* BUTTONS */
+
+.actions{
+margin-top:80px;
+}
+
+button{
+padding:20px 50px;
+font-size:22px;
+margin:20px;
+background:#00eaff;
+border:none;
 cursor:pointer;
+border-radius:10px;
 transition:0.3s;
 }
 
-.card:hover{
+button:hover{
 transform:scale(1.05);
 }
 
-.title{
-font-size:30px;
-color:#00eaff;
-margin-bottom:20px;
+/* ANIMATED BACKGROUND */
+
+.bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:radial-gradient(circle at 20% 20%, rgba(0,234,255,0.1), transparent),
+            radial-gradient(circle at 80% 80%, rgba(0,234,255,0.1), transparent);
+z-index:-1;
+animation: pulse 6s infinite alternate;
 }
 
-.desc{
-font-size:18px;
-opacity:.8;
+@keyframes pulse{
+from{opacity:0.3;}
+to{opacity:1;}
 }
 
 </style>
-
 </head>
 
 <body>
 
-<h1>MAINFRAME AI EXPERIENCE</h1>
-<p class="subtitle">
-Experience how AI transforms Mainframe Development and Operations
-</p>
+<div class="bg"></div>
 
-<div class="container">
+<h1>MAINFRAME AI COMMAND CENTER</h1>
+<p class="subtitle">The Invisible Engine of the World</p>
 
-<div class="card" onclick="location.href='modernize.html'">
-<div class="title">Modernise Mainframe Applications</div>
-<div class="desc">
-Transform COBOL using AI-powered modernization
-</div>
+<div class="dashboard">
+
+<div class="card">
+<div class="label">Credit Card Transactions</div>
+<div id="cc" class="value">0</div>
 </div>
 
-<div class="card" onclick="location.href='operations.html'">
-<div class="title">Simplify Mainframe Operations</div>
-<div class="desc">
-Use AI agents to manage and automate systems
+<div class="card">
+<div class="label">ATM Withdrawals</div>
+<div id="atm" class="value">0</div>
 </div>
+
+<div class="card">
+<div class="label">Airline Bookings</div>
+<div id="air" class="value">0</div>
 </div>
 
 </div>
+
+<div class="actions">
+
+<button onclick="location.href='modernize.html'">
+Modernise Applications
+</button>
+
+<button onclick="location.href='operations.html'">
+Simplify Operations
+</button>
+
+</div>
+
+<script>
+
+/* LIVE COUNTERS */
+
+let cc = 2000000;
+let atm = 800000;
+let air = 400000;
+
+function format(num){
+return num.toLocaleString();
+}
+
+function update(){
+
+cc += Math.floor(Math.random()*50);
+atm += Math.floor(Math.random()*20);
+air += Math.floor(Math.random()*10);
+
+document.getElementById("cc").innerText = format(cc);
+document.getElementById("atm").innerText = format(atm);
+document.getElementById("air").innerText = format(air);
+
+}
+
+setInterval(update, 500);
+
+update();
+
+</script>
 
 </body>
 </html>
