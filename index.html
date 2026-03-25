@@ -10,12 +10,19 @@ background:#050816;
 color:white;
 font-family:Arial;
 text-align:center;
+margin:0;
 }
 
 h1{
 font-size:60px;
 color:#00eaff;
 margin-top:60px;
+}
+
+.subtitle{
+font-size:22px;
+opacity:.7;
+margin-top:10px;
 }
 
 .container{
@@ -32,6 +39,7 @@ width:420px;
 border-radius:14px;
 box-shadow:0 0 30px rgba(0,234,255,0.3);
 cursor:pointer;
+transition:0.3s;
 }
 
 .card:hover{
@@ -56,20 +64,23 @@ opacity:.8;
 <body>
 
 <h1>MAINFRAME AI EXPERIENCE</h1>
+<p class="subtitle">
+Experience how AI transforms Mainframe Development and Operations
+</p>
 
 <div class="container">
 
-<div class="card" onclick="location.href='module1-modernize.html'">
+<div class="card" onclick="location.href='modernize.html'">
 <div class="title">Modernise Mainframe Applications</div>
 <div class="desc">
-Transform COBOL applications using AI powered modernization
+Transform COBOL using AI-powered modernization
 </div>
 </div>
 
-<div class="card" onclick="location.href='module2-operations.html'">
+<div class="card" onclick="location.href='operations.html'">
 <div class="title">Simplify Mainframe Operations</div>
 <div class="desc">
-Use AI agents to manage and automate system operations
+Use AI agents to manage and automate systems
 </div>
 </div>
 

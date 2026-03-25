@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Modernization Challenge</title>
+
+<style>
+body{
+background:#000814;
+color:white;
+font-family:monospace;
+text-align:center;
+}
+
+.code{
+background:black;
+width:650px;
+margin:40px auto;
+padding:30px;
+text-align:left;
+}
+
+button{
+padding:15px 30px;
+margin:10px;
+font-size:18px;
+background:#00eaff;
+border:none;
+cursor:pointer;
+}
+
+.result{
+font-size:24px;
+margin-top:40px;
+color:#00ff9c;
+}
+</style>
+</head>
+
+<body>
+
+<button onclick="location.href='index.html'">⬅ Home</button>
+
+<h1>COBOL Modernization Challenge</h1>
+
+<div class="code">
+IDENTIFICATION DIVISION.
+PROGRAM-ID. PAYMENT.
+PROCEDURE DIVISION.
+DISPLAY "PROCESS PAYMENT".
+STOP RUN.
+</div>
+
+<h3>How should we modernize this application?</h3>
+
+<button onclick="wrong()">Rewrite everything</button>
+<button onclick="wrong()">Manual refactor</button>
+<button onclick="correct()">Use watsonx Code Assistant</button>
+
+<div id="result" class="result"></div>
+
+<script>
+
+function wrong(){
+document.getElementById("result").innerText =
+"❌ This approach takes months!";
+}
+
+function correct(){
+document.getElementById("result").innerText =
+"✅ AI Modernization Successful!\nCOBOL → Java APIs generated\nTechnical Debt Reduced 80%";
+}
+
+setTimeout(()=>{
+location.href="index.html"
+},120000)
+
+</script>
+
+</body>
+</html>
